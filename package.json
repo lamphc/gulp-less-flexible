@@ -1,14 +1,9 @@
 {
-  "name": "SPA-Gulp",
+  "name": "iflex-less-gulp",
   "version": "1.0.0",
-  "description": "SPA-Webstatic",
+  "description": "fit h5 device...",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Meng",
-  "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.16.0",
     "gulp": "^3.9.1",
     "gulp-htmlmin": "^2.0.0",
@@ -24,5 +19,22 @@
     "gulp-uglify": "^2.0.0",
     "imagemin-pngquant": "^5.0.0",
     "postcss-px2rem": "^0.3.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamphc/gulp-less-flexible.git"
+  },
+  "keywords": [
+    "iflex"
+  ],
+  "author": "meng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lamphc/gulp-less-flexible/issues"
+  },
+  "homepage": "https://github.com/lamphc/gulp-less-flexible#readme"
 }

@@ -1,0 +1,147 @@
+a:link,
+a:visited,
+a:active {
+  color: #333;
+}
+
+a:hover,
+a:focus {
+  color: #ff6670;
+  text-decoration: none;
+}
+
+.p20 {
+  padding: 0.3125rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.cl {
+  zoom: 1;
+}
+
+.cl:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.btn {
+  width: 2rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  border-radius: 2px;
+  color: #fff;
+  text-align: center;
+}
+
+.btn.btn-primary {
+  background: #ec0033;
+}
+
+#navTest {
+  position: fixed;
+  top: 0.15625rem;
+  left: 0.15625rem;
+}
+
+#navTest a.active {
+  background: #ff2050;
+}
+
+#navTest a {
+  float: left;
+  display: block;
+  color: #fff;
+  border-radius: 0;
+}
+
+#navTest a:hover {
+  background: #b90028;
+}
+
+body {
+  font-family: "微软雅黑";
+  color: #333;
+  background: #f0f0f0;
+}
+
+header p {
+  padding: 0.3125rem;
+}
+
+.container {
+  margin: 0 auto;
+  width: 10rem;
+  background: #fff;
+}
+
+.box {
+  padding: 0.15625rem;
+}
+
+.demo .squ {
+  padding: 0.234375rem 0;
+}
+
+.demo .squ:not(:last-child) {
+  border-bottom: 1px dashed #ddd;
+}
+
+.squ img {
+  margin-right: 0.3125rem;
+  width: 3.75rem;
+  height: 2.5rem;
+}
+
+.squ dl {
+  width: 5.625rem;
+}
+
+.squ dl dt {
+  margin-bottom: 0.15625rem;
+}
+
+[data-dpr="1"] .squ dl dt {
+  font-size: 16px;
+}
+
+[data-dpr="2"] .squ dl dt {
+  font-size: 32px;
+}
+
+[data-dpr="3"] .squ dl dt {
+  font-size: 48px;
+}
+
+[data-dpr="1"] .squ dl dd {
+  font-size: 14px;
+}
+
+[data-dpr="2"] .squ dl dd {
+  font-size: 28px;
+}
+
+[data-dpr="3"] .squ dl dd {
+  font-size: 42px;
+}

@@ -1,0 +1,62 @@
+{
+	"version" : "1.0.0.m",
+	"app" : {
+		"src" : "src/app.html",
+		"dest" : "build/"
+	},
+	"buildcss" : 
+		{
+			"src" : "src/css/main.css",
+			"dest" : "build/css"
+		},
+	"encodeless" : 
+		{
+			"src" : "src/less/*.less",
+			"htmlsrc" : "src/html/**/*.html",
+			"serversrc" : "./src/",
+			"dest" : "src/css"
+		},
+	"buildimage" :[
+		{
+			"src" : "./src/favicon.ico",
+			"dest" : "build/"
+		},
+		{
+			"src" : "src/img/*.{png,jpg,gif,svg,ico}",
+			"dest" : "build/img"
+		}
+	],
+	"buildhtml" : {
+		"src" : "src/html/**/*.html",
+		"dest" : "build/html/"
+	},
+	"buildjs" : [
+		{
+			"src" : "src/js/*.js",
+			"dest" : "build/js/"
+		},
+		{
+			"src" : "src/js/libs/*.js",
+			"dest" : "build/js/libs/"
+		},
+		{
+			"src" : "src/js/modules/*.js",
+			"dest" : "build/js/modules/"
+		}
+	],
+	"others" : [
+		{
+			"src" : "src/fonts/*",
+			"dest" : "build/fonts/"
+		}
+	],
+	"cmdcombo" : [
+		{
+			"src" : "src/js/root/root.js",
+			"dest" : "build/js/root/",
+			"map" : { 
+	            "target/root/root_main" : "./root_main"
+	        }
+		}
+	]
+}

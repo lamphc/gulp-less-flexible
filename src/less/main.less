@@ -1,0 +1,166 @@
+//common variable&function set
+@frame-width: 640px; //根据设计稿宽度计算(默认值)
+@frame-p10: 10px;
+@frame-p20: 20px;
+@dev-border: 1px solid @color-gray;
+@color-red: #ec0033;
+@color-light-red: lighten(@color-red, 10%);
+@color-gray: #ddd;
+@color-white: #fff;
+
+.float (@d:left) {
+  float: @d;
+}
+
+a {
+  &:link, &:visited, &:active {
+    color: #333
+  }
+  &:hover, &:focus {
+    color: #ff6670;
+    text-decoration: none
+  }
+}
+
+.p20 {
+  padding: @frame-p20;
+}
+
+.border-seq(@w:1px, @s:solid, @c:#eee, @d:0) when (@d=0) {
+  border: @w @s @c;
+}
+
+.border-seq(@w:1px, @s:solid, @c:#eee, @d:0) when (@d=2) {
+  border-bottom: @w @s @c;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.cl {
+  zoom: 1;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+  }
+}
+
+.fl {
+  .float()
+}
+
+.fr {
+  .float(right)
+}
+
+.btn {
+  width: 128px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 2px; /*no*/
+  color: #fff;
+  text-align: center
+}
+
+.btn.btn-primary {
+  background: @color-red
+}
+
+.pos(nav) {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#navTest {
+  .pos(nav)
+}
+
+#navTest {
+  a.active {
+    background: @color-light-red;
+  }
+}
+
+#navTest {
+  a {
+    .float();
+    display: block;
+    color: #fff;
+    border-radius: 0;
+    &:hover {
+      background: darken(@color-red, 10%);
+    }
+  }
+}
+
+//global set
+
+body {
+  font-family: "微软雅黑";
+  color: #333;
+  background: #f0f0f0;
+}
+
+header {
+  p {
+    padding: @frame-p20;
+  }
+}
+
+//默认内容区域viewport宽度和设计稿一致
+.container {
+  margin: 0 auto;
+  width: @frame-width; //flexble.js动态计算物理像素
+  background: @color-white;
+}
+
+.box {
+  padding: @frame-p10;
+}
+
+.view {
+
+}
+
+//index page
+.demo {
+  .squ {
+    padding: 15px 0;
+    &:not(:last-child) {
+      .border-seq(1px, dashed, #ddd, 2); /*no*/
+    }
+  }
+}
+
+.squ {
+  img {
+    margin-right: 20px;
+    width: 240px;
+    height: 160px;
+  }
+  dl {
+    width: 360px;
+    dt {
+      margin-bottom: 10px;
+      font-size: 32px; /*px*/
+    }
+    dd {
+      font-size: 28px; /*px*/
+    }
+  }
+}
+
+

@@ -60,7 +60,7 @@ $ npm install
 
 ##运行
 ####开发环境
-// 创建开发服务,实时监测代码刷新浏览器(less及html目录监测,可在gulpfile.js中修改监测范围)
+// 创建开发静态服务器,实时监测代码刷新浏览器(less及html目录监测,可在gulpfile.js中修改监测范围)
 ```
 $ gulp watch
 

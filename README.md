@@ -1,4 +1,4 @@
-#gulp-seajs-jquery-flexible 静态资源构建项目
+#gulp-seajs-jquery-flexible 静态资源项目构建
 > 本项目可以帮你快速搭建手机端静态资源开发
 
 

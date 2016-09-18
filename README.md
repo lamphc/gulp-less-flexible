@@ -51,25 +51,25 @@ css使用less进行预编译,依赖统一引入main.less中,经gulp编译统一�
 ```
 // 安装前请先确保已安装node和npm
 // 需要提前在全局安装gulp,如果已安装请忽略
-npm install gulp -g
+$ npm install gulp -g
 
 
 // 安装成功后,再安装依赖
-npm install
+$ npm install
 ```
 
 ##运行
 ####开发环境
 // 创建开发服务,实时监测代码刷新浏览器(less及html目录监测,可在gulpfile.js中修改监测范围)
 ```
-gulp watch
+$ gulp watch
 
 ```
 
 ####生产环境(打包)
 预览可直接复制build目录下所有文件到服务器根目录即可
 ```
-gulp
+$ gulp
 
 ```
 

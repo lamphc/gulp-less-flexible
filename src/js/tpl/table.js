@@ -1,0 +1,1 @@
+define(function(require,module,exports){return "<p>{{list}}</p>"})

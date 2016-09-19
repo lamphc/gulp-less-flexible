@@ -3,13 +3,15 @@ define(function(require, exports, module) {
 	var app = $('#app'),
 		hash = window.location.hash;
 
+	//引入模板引擎
+	window.template = require('template');
 	//引入子模块	
 	var header = require('./modules/header'),
 		index = require('./modules/index'),
 		detail = require('./modules/detail');
 
-	//includes	
-	header.init($('header'));
+	//includes
+	header.init();
 
 	//路由
 	var router = {
@@ -28,7 +30,7 @@ define(function(require, exports, module) {
 				case flag.detail:
 					// statements_1
 					detail.init(app);
-					break
+					break;
 				default:
 					// statements_def
 					index.init(app);

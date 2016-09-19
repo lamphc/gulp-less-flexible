@@ -6,6 +6,7 @@
   "dependencies": {
     "browser-sync": "^2.16.0",
     "gulp": "^3.9.1",
+    "gulp-content-includer": "0.0.7",
     "gulp-htmlmin": "^2.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-less": "^3.1.0",

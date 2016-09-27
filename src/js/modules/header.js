@@ -4,6 +4,8 @@ define(function (require, exports, module) {
         init: function () {
             var vm = this;
             vm.nav();
+            //back to top
+            var totop = MC.mscroll('.mc-totop',0);
         },
         nav: function () {
             var nav = $('#navTest');

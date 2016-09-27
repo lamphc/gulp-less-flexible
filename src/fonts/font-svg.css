@@ -1,0 +1,112 @@
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?l8xp0');
+  src:  url('icomoon.eot?l8xp0#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?l8xp0') format('truetype'),
+    url('icomoon.woff?l8xp0') format('woff'),
+    url('icomoon.svg?l8xp0#icomoon') format('svg');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-account:before {
+  content: "\e900";
+}
+.icon-ADactive:before {
+  content: "\e901";
+}
+.icon-arrow-down:before {
+  content: "\e902";
+}
+.icon-baseMsg:before {
+  content: "\e903";
+}
+.icon-bell:before {
+  content: "\e904";
+}
+.icon-correct:before {
+  content: "\e905";
+}
+.icon-curve:before {
+  content: "\e906";
+}
+.icon-data-manage:before {
+  content: "\e907";
+}
+.icon-defend:before {
+  content: "\e908";
+}
+.icon-defendSetting:before {
+  content: "\e909";
+}
+.icon-del:before {
+  content: "\e90a";
+}
+.icon-download:before {
+  content: "\e90b";
+}
+.icon-edit:before {
+  content: "\e90c";
+}
+.icon-empower:before {
+  content: "\e90d";
+}
+.icon-group:before {
+  content: "\e90e";
+}
+.icon-link:before {
+  content: "\e90f";
+}
+.icon-logOut:before {
+  content: "\e910";
+}
+.icon-pdList:before {
+  content: "\e911";
+}
+.icon-pillar:before {
+  content: "\e912";
+}
+.icon-prompted:before {
+  content: "\e913";
+}
+.icon-qa:before {
+  content: "\e914";
+}
+.icon-question:before {
+  content: "\e915";
+}
+.icon-search:before {
+  content: "\e916";
+}
+.icon-setting:before {
+  content: "\e917";
+}
+.icon-star:before {
+  content: "\e918";
+}
+.icon-summary:before {
+  content: "\e919";
+}
+.icon-table:before {
+  content: "\e91a";
+}
+.icon-title:before {
+  content: "\e91b";
+}
+.icon-user-defined:before {
+  content: "\e91c";
+}

@@ -43,6 +43,7 @@
   },
   "buildjs": [
     {
+      "dev":"nomin",
       "src": "src/js/*.js",
       "dest": "build/js/"
     },
@@ -51,8 +52,13 @@
       "dest": "build/js/libs/"
     },
     {
+      "dev":"nomin",
       "src": "src/js/modules/*.js",
       "dest": "build/js/modules/"
+    },
+    {
+      "src": "src/js/util/*.js",
+      "dest": "build/js/util/"
     },
     {
       "src": "src/js/tpl/*.js",

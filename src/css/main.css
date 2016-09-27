@@ -1,29 +1,15 @@
-a:link,
-a:visited,
-a:active {
-  color: #333;
+.table {
+  width: 100%;
+  display: table;
 }
 
-a:hover,
-a:focus {
-  color: #ff6670;
-  text-decoration: none;
+.table-row {
+  display: table-row;
 }
 
-.p20 {
-  padding: 0.3125rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .cl {
@@ -46,17 +32,165 @@ a:focus {
   float: right;
 }
 
-.btn {
-  width: 2rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
-  border-radius: 2px;
+input {
+  outline: none;
+}
+
+img {
+  width: 100%;
+  border: none;
+}
+
+a:link,
+a:visited,
+a:active {
+  color: #333;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.txt-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.btn,
+a.btn {
+  display: inline-block;
+  width: 2.9375rem;
+  height: 0.75rem;
+  line-height: 0.78125rem;
+  border: 1px solid #ec0033;
   color: #fff;
   text-align: center;
 }
 
+[data-dpr="1"] .btn,
+[data-dpr="1"] a.btn {
+  font-size: 12px;
+}
+
+[data-dpr="2"] .btn,
+[data-dpr="2"] a.btn {
+  font-size: 24px;
+}
+
+[data-dpr="3"] .btn,
+[data-dpr="3"] a.btn {
+  font-size: 36px;
+}
+
+.btn.btn-default {
+  background: #fff;
+  color: #ec0033;
+}
+
 .btn.btn-primary {
   background: #ec0033;
+}
+
+#loading {
+  position: fixed;
+  top: 50%;
+  z-index: 100;
+  width: 100%;
+}
+
+#loading .spinnerx {
+  margin: 0 auto;
+  width: 2.34375rem;
+  text-align: center;
+}
+
+#loading .spinnerx > div {
+  width: 0.390625rem;
+  height: 0.390625rem;
+  background-color: #5697f1;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#loading .spinnerx .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+#loading .spinnerx .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
+  color: #333;
+}
+
+/* 设置滚动条的样式*/
+
+::-webkit-scrollbar {
+  width: 0.09375rem;
+  height: 0.09375rem;
+}
+
+/* 滚动条滑块*/
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.15625rem;
+  background: #a9a9a9;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  visibility: hidden;
+}
+
+.scrollbar:hover ::-webkit-scrollbar-thumb {
+  visibility: visible;
 }
 
 #navTest {
@@ -80,28 +214,88 @@ a:focus {
   background: #b90028;
 }
 
+.mc-totop {
+  position: fixed;
+  bottom: 1.5625rem;
+  right: 0.25rem;
+  z-index: 2;
+  display: inline-block;
+  width: 0.78125rem;
+  height: 0.78125rem;
+  line-height: 0.78125rem;
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  border: 0.015625rem solid #ddd;
+  background: #fff;
+  display: table;
+  transform: rotate(180deg);
+  transition: display 0.3s ease-in;
+  cursor: pointer;
+}
+
+.mc-totop i {
+  display: table-cell;
+  vertical-align: middle;
+  color: #ec0033;
+}
+
+[data-dpr="1"] .mc-totop i {
+  font-size: 40px;
+}
+
+[data-dpr="2"] .mc-totop i {
+  font-size: 80px;
+}
+
+[data-dpr="3"] .mc-totop i {
+  font-size: 120px;
+}
+
 body {
   font-family: "微软雅黑";
   color: #333;
-  background: #f0f0f0;
+}
+
+header {
+  box-sizing: border-box;
+  padding: 0.25rem;
+  color: #fff;
+  background: #ec0033;
+}
+
+[data-dpr="1"] header {
+  font-size: 14px;
+}
+
+[data-dpr="2"] header {
+  font-size: 28px;
+}
+
+[data-dpr="3"] header {
+  font-size: 42px;
 }
 
 header p {
-  padding: 0.3125rem;
+  padding: 0.25rem;
 }
 
 .container {
   margin: 0 auto;
   width: 10rem;
-  background: #fff;
 }
 
 .box {
-  padding: 0.15625rem;
+  padding: 0.25rem;
+}
+
+.demo {
+  padding: 0.25rem;
+  background: #fff;
 }
 
 .demo .squ {
-  padding: 0.234375rem 0;
+  padding: 0.25rem 0;
 }
 
 .demo .squ:not(:last-child) {
@@ -109,17 +303,16 @@ header p {
 }
 
 .squ img {
-  margin-right: 0.3125rem;
-  width: 3.75rem;
-  height: 2.5rem;
+  margin-right: 0.25rem;
+  width: 3rem;
 }
 
 .squ dl {
-  width: 5.625rem;
+  width: 6.25rem;
 }
 
 .squ dl dt {
-  margin-bottom: 0.15625rem;
+  margin-bottom: 0.25rem;
 }
 
 [data-dpr="1"] .squ dl dt {

@@ -1,29 +1,88 @@
 //common variable&function set
 @frame-width: 640px; //根据设计稿宽度计算(默认值)
-@frame-p10: 10px;
-@frame-p20: 20px;
 @dev-border: 1px solid @color-gray;
 @color-red: #ec0033;
 @color-light-red: lighten(@color-red, 10%);
 @color-gray: #ddd;
 @color-white: #fff;
+@font-dcolor: #333;
+
+//global set fns
+//栅格计算
+//config
+@grid-box: 36px; //一列的宽度
+@grid-seq: 16px; //列宽间隔
+//function
+.grid(@col:1) {
+  width: (@col * @grid-box + (@col - 1) * @grid-seq);
+}
+
+
+.box-sizing(@s:border-box) {
+  box-sizing: @s;
+}
+.table {
+  width: 100%;
+  display: table;
+}
+
+.table-row {
+  display: table-row;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.font-size(@size:24px) {
+  font-size: @size; /*px*/
+}
+
+.border(@w:1px,@s:solid,@c:@color-gray) {
+  border:@w @s @c;/*no*/
+}
+//end
 
 .float (@d:left) {
   float: @d;
 }
 
-a {
-  &:link, &:visited, &:active {
-    color: #333
-  }
-  &:hover, &:focus {
-    color: #ff6670;
-    text-decoration: none
+.cl {
+  zoom: 1;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
   }
 }
 
-.p20 {
-  padding: @frame-p20;
+.fl {
+  .float()
+}
+
+.fr {
+  .float(right)
+}
+
+input {
+  outline: none
+}
+
+img {
+  width: 100%;
+  border: none
+}
+
+a {
+  &:link, &:visited, &:active {
+    color: @font-dcolor;
+  }
+  &:hover, &:focus {
+    text-decoration: none;
+  }
 }
 
 .border-seq(@w:1px, @s:solid, @c:#eee, @d:0) when (@d=0) {
@@ -46,36 +105,122 @@ a {
   text-align: right;
 }
 
-.cl {
-  zoom: 1;
-  &:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden
-  }
+.txt-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.fl {
-  .float()
+.circle(@w:40px,@h:40px) {
+  display: inline-block;
+  width: @w;
+  height: @h;
+  line-height: @h;
+  border-radius: 100%;
+  overflow: hidden;
 }
 
-.fr {
-  .float(right)
-}
-
-.btn {
-  width: 128px;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 2px; /*no*/
-  color: #fff;
+.btn, a.btn {
+  display: inline-block;
+  width: 188px;
+  height: 48px;
+  line-height: 50px;
+  border: 1px solid @color-red; /*no*/
+  color: @color-white;
+  font-size: 24px; /*px*/
   text-align: center
 }
 
+.btn.btn-default {
+  background: @color-white;
+  color: @color-red;
+}
+
 .btn.btn-primary {
-  background: @color-red
+  background: @color-red;
+}
+
+//loading
+#loading {
+  position: fixed;
+  top: 50%;
+  z-index: 100;
+  width: 100%;
+  .spinnerx {
+    margin: 0 auto;
+    width: 150px;
+    text-align: center;
+    & > div {
+      width: 25px;
+      height: 25px;
+      background-color: #5697f1;
+
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+      animation: bouncedelay 1.4s infinite ease-in-out;
+      /* Prevent first frame from flickering when animation starts */
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    .bounce1 {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+    .bounce2 {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+  }
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0)
+  }
+  40% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  }
+  40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+//global set
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
+  color:@font-dcolor;
+}
+
+/* 设置滚动条的样式*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* 滚动条滑块*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #a9a9a9;
+}
+
+.scrollbar {
+  &::-webkit-scrollbar-thumb {
+    visibility: hidden;
+  }
+  &:hover ::-webkit-scrollbar-thumb {
+    visibility: visible
+  }
 }
 
 .pos(nav) {
@@ -106,17 +251,45 @@ a {
   }
 }
 
-//global set
+.fixed-bottom(@bottom:0,@right:0) {
+  position: fixed;
+  bottom: @bottom;
+  right: @right;
+}
+.mc-totop {
+  .fixed-bottom(100px, @grid-seq);
+  z-index: 2;
+  .circle(50px, 50px);
+  .text-center;
+  border: 1px solid @color-gray;
+  background: #fff;
+  display: table;
+  transform: rotate(180deg);
+  transition:display .3s ease-in;
+  cursor: pointer;
+  i {
+    .table-cell;
+    .font-size(80px);
+    color:@color-red;
+  }
+
+}
+
+//global set end
 
 body {
   font-family: "微软雅黑";
   color: #333;
-  background: #f0f0f0;
 }
 
 header {
+  .box-sizing();
+  .box;
+  .font-size(28px);
+  color:#fff;
+  background:@color-red;
   p {
-    padding: @frame-p20;
+    padding: @grid-seq;
   }
 }
 
@@ -124,21 +297,18 @@ header {
 .container {
   margin: 0 auto;
   width: @frame-width; //flexble.js动态计算物理像素
-  background: @color-white;
 }
 
 .box {
-  padding: @frame-p10;
-}
-
-.view {
-
+  padding: @grid-seq;
 }
 
 //index page
 .demo {
+  .box;
+  background:#fff;
   .squ {
-    padding: 15px 0;
+    padding: @grid-seq 0;
     &:not(:last-child) {
       .border-seq(1px, dashed, #ddd, 2); /*no*/
     }
@@ -147,18 +317,17 @@ header {
 
 .squ {
   img {
-    margin-right: 20px;
-    width: 240px;
-    height: 160px;
+    margin-right: @grid-seq;
+    .grid(4);
   }
   dl {
-    width: 360px;
+    .grid(8);
     dt {
-      margin-bottom: 10px;
+      margin-bottom: @grid-seq;
       font-size: 32px; /*px*/
     }
     dd {
-      font-size: 28px; /*px*/
+      .font-size(28px);
     }
   }
 }

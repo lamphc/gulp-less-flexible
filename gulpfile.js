@@ -101,9 +101,14 @@ if (options.buildjs) {
         let taskName = `buildjs-[${index}]`;
         queentask.push(taskName);
         gulp.task(taskName, function () {
-            gulp.src(item.src)
-                .pipe(jsmin(option))
-                .pipe(gulp.dest(item.dest));
+            if (item.dev) {//dev 暂不压缩JS文件
+                gulp.src(item.src)
+                    .pipe(gulp.dest(item.dest));
+            } else {
+                gulp.src(item.src)
+                    .pipe(jsmin(option))
+                    .pipe(gulp.dest(item.dest));
+            }
         });
     });
 }
@@ -195,7 +200,7 @@ if (options.encodeless && options.buildtmod) {
                 deepConcat: true,
                 includerReg: /<!\-\-include\s+"([^"]+)"\-\->/g
             }))
-            .pipe(rename({basename:'app'}))
+            .pipe(rename({basename: 'app'}))
             .pipe(gulp.dest(options.buildtmod.devdest))
             .pipe(reload({
                 stream: true
@@ -208,6 +213,7 @@ if (options.encodeless && options.buildtmod) {
 
     //@静态服务器 + 监听 less&html 文件(更改实时刷新浏览器)
     gulp.task('watch', ['lessTask', 'build:includes', 'build:js-tpl'], function () {
+        //初始化静态服务器
         browsersync.init({
             server: {
                 baseDir: options.encodeless.serversrc, //服务器根目录配置
@@ -220,10 +226,15 @@ if (options.encodeless && options.buildtmod) {
             },
             port: 3600
         });
-
+        //实时监听,编译并刷新浏览器
+        //监听编译less
         gulp.watch(options.encodeless.src, ['lessTask']);
+        //监听编译入口页
         gulp.watch(options.buildtmod.includesrc, ['build:includes']);
+        gulp.watch(options.buildtmod.devsrc, ['build:includes']);
+        //监听编译js模板页
         gulp.watch(options.buildtmod.src, ['build:js-tpl']);
+        //监听页面及样式变化,实时刷新
         gulp.watch(options.encodeless.htmlsrc).on('change', reload);
         gulp.watch(options.encodeless.jssrc).on('change', reload);
     });
@@ -256,7 +267,7 @@ gulp.task('default', function () {
             read: false
         })
             .pipe(notify({
-                message: 'All build work is complete, without error.'
+                message: 'All build work is complete.'
             }));
     })
 })

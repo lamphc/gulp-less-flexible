@@ -3,6 +3,13 @@ define(function(require, exports, module) {
 	var app = $('#app'),
 		hash = window.location.hash;
 
+	//设备类型判断
+	var device = !function (M,$) {
+		if(M.ispc()) {
+			console.log('Device:[PC]');
+		}
+	}(MC,$);
+
 	//引入模板引擎
 	window.template = require('template');
 	//引入子模块	
@@ -14,38 +21,13 @@ define(function(require, exports, module) {
 	header.init();
 
 	//路由
-	var router = {
+	var route = MC.route({
+		el: app,
 		config: {
-			index: "#index", //首页
-			detail: "#detail", //详情页
-		},
-		init: function(hash) {
-			var vm = this,
-				flag = vm.config;
-			switch (hash) {
-				case flag.index:
-					// statements_1
-					index.init(app);
-					break;
-				case flag.detail:
-					// statements_1
-					detail.init(app);
-					break;
-				default:
-					// statements_def
-					index.init(app);
-					break;
-			}
-			//bind event
-			return function() {
-				$(window).on('hashchange', function(e) {
-					var nhash = window.location.hash;
-					vm.init(nhash);
-				})
-			}
-		}
+			index: {name: "#index", fn: index}, //首页
+			detail: {name: "#detail", fn: detail}, //详情页
 
-	};
-	//初始化
-	router.init(hash)();
+		}
+	});
+
 });

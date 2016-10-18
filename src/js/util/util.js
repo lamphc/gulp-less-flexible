@@ -347,9 +347,9 @@
             //初始化
             if (type === 0) {
                 ot.hide();
-                ot.on('click', function () {
+                ot.on('click', function (e) {
                     $(window).scrollTop(0);
-
+                    e.stopPropagation();    
                 })
             }
             //bind event
